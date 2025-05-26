@@ -9,7 +9,7 @@ namespace RegionaleFeiertage.PublicHoliday
 
         public override string ToString()
         {
-            return $"{Datum:yyyy-mm-dd} - {Name}"
+            return $"{Datum:yyyy-mm-dd} - {Name}";
         }
     }
 }

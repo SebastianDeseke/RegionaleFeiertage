@@ -1,5 +1,5 @@
 using System;
-using Feiertage.PublicHoliday;
+using RegionaleFeiertage.PublicHoliday;
 
 namespace RegionaleFeiertage.Region
 {
@@ -21,9 +21,9 @@ namespace RegionaleFeiertage.Region
             var result = $"{Name} ({Shortname})";
             foreach (var f in Feiertage)
             {
-                result += $"\n  {f}"
+                result += $"\n  {f}";
             }
-            return result
+            return result;
         }
     }
 }
