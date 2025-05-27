@@ -1,4 +1,5 @@
 using System;
+using static RegionaleFeiertage.PublicHoliday.FeiertageDefinition;
 
 namespace RegionaleFeiertage.PublicHoliday
 {
