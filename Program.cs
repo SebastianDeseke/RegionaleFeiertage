@@ -5,18 +5,31 @@ using Serilog;
 using System;
 
 
-var host = Host.CreateDefaultBuilder(args);
-host.ConfigureServices ((context, service) => {
-
-});
-
-await host.RunConsoleAsync();
-
 // Configure Serilog to write logs to a file
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()  // Optional: Log to Console
-    .WriteTo.File("logs/app-log.txt", rollingInterval: RollingInterval.Day)
+    .ReadFrom.Configuration(Host.Configuration)
     .CreateLogger();
 
-// Use Serilog as the logging provider
-builder.Host.UseSerilog();
+try
+{
+    Log.Information("Starting application");
+    
+    var host = Host.CreateDefaultBuilder(args);
+    host.ConfigureServices((context, service) =>
+    {
+
+    })
+    .Build();
+    // Use Serilog as the logging provider
+    host.UseSerilog();
+
+await host.RunConsoleAsync();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
