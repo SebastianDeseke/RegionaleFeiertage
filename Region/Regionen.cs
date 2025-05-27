@@ -167,7 +167,7 @@ namespace RegionaleFeiertage.Region
         public static Region All(int year, bool includeSonntage = false)
         {
             /* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
-            InternationalerTagDesGedenkensAnDieOpferDesHolocaust, InternationalerFrauentag, Josefitag,
+            HolocaustGedenktag, InternationalerFrauentag, Josefitag,
             Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, Karfreitag,
             BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit, Staatsfeiertag,
             InternationalerTagDerPressefreiheit, Florianitag, TagDerBefreiung, Muttertag,
@@ -179,8 +179,8 @@ namespace RegionaleFeiertage.Region
             Heiligabend, Weihnachten, Christtag, ZweiterWeihnachtsfeiertag, Stefanitag, Silvester}
             */
 
-            var feiern = new List<Func<int, Feiertag>> {Epiphanias, Valentinstag, InternationalerTagDesGedenkensAnDieOpferDesHolocaust,
-        Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, InternationalerKindertag,
+            var feiern = new List<Func<int, Feiertag>> {Epiphanias, Valentinstag, HolocaustGedenktag,
+        Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gruendonnerstag, InternationalerKindertag,
         TagDesMeeres, Weltflüchtlingstag, BeginnSommerzeit, Walpurgisnacht, InternationalerTagDerPressefreiheit,
         Weltknuddeltag, TagDerErde, StarWarsDay, Weltumwelttag, Weltblutspendetag, InternationalerMännertag,
         Florianitag, TagDerBefreiung, Muttertag, Vatertag, Handtuchtag, TowelDay,
@@ -206,9 +206,9 @@ namespace RegionaleFeiertage.Region
 
             if (includeSonntage)
             {
-                feiern.Add(Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
+                feiern.AddRange([Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
                     Dreifaltigkeitssonntag, Erntedankfest, Volkstrauertag, Totensonntag,
-                    ErsterAdvent, ZweiterAdvent, DritterAdvent, VierterAdvent);
+                    ErsterAdvent, ZweiterAdvent, DritterAdvent, VierterAdvent]);
 
             }
             var feiernlist = FeiertageFactory.FeiertagFunctionListToFeiertagList(feiern, year);

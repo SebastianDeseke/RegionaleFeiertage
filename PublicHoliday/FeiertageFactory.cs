@@ -18,7 +18,7 @@ namespace RegionaleFeiertage.PublicHoliday
                 TagDerDeutschenEinheit,
                 Pfingstmontag,
                 Weihnachten,
-                ZweiterWeihnachtsTag
+                ZweiterWeihnachtstag
             };
 
             if (year == 2017)
