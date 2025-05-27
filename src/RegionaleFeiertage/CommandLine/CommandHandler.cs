@@ -1,9 +1,19 @@
+using Microsoft.Extensions.Logging;
+
 namespace RegionaleFeiertage.CommandLine
 {
     public class CommandHandler
     {
+        private readonly ILogger<CommandHandler> _logger;
+
+        public CommandHandler(ILogger<CommandHandler> logger)
+        {
+            _logger = logger;
+        }
+
         public void Run(string[] args)
         {
+            _logger.LogInformation("Parsing command-line arguments: {Args}", string.Join(" ", args));
             string region = "Alle";
             bool inklusiveSonntage = false;
             bool asTaskjugglerCode = false;
@@ -23,14 +33,14 @@ namespace RegionaleFeiertage.CommandLine
 
             if (year is null)
             {
-                Console.WriteLine("❌ Kein Jahr angegeben.");
+                Console.WriteLine("Kein Jahr angegeben.");
                 return;
             }
 
-            Console.WriteLine($"📅 Jahr: {year}");
-            Console.WriteLine($"🌍 Region: {region}");
-            Console.WriteLine($"📋 Inklusive Sonntage: {inklusiveSonntage}");
-            Console.WriteLine($"📦 TaskJuggler Output: {asTaskjugglerCode}");
+            Console.WriteLine($"Jahr: {year}");
+            Console.WriteLine($"Region: {region}");
+            Console.WriteLine($"Inklusive Sonntage: {inklusiveSonntage}");
+            Console.WriteLine($"TaskJuggler Output: {asTaskjugglerCode}");
 
             // Your logic here
             var holidays = FeiertagsRechner.GetFeiertage(year.Value, region, inklusiveSonntage);
