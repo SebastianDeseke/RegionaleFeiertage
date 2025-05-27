@@ -617,7 +617,7 @@ namespace RegionaleFeiertage.PublicHoliday
         }
 
         // BußUndBettag is Penance Day, 11 days before the first Sunday in Advent
-        public static Feiertag BußUndBettag(int year)
+        public static Feiertag BußUndBettTag(int year)
         {
             var nov22 = new DateTime(year, 11, 22);
             int daysBackToWednesday = ((int)nov22.DayOfWeek + 3) % 7;

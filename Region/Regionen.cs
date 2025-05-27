@@ -44,7 +44,7 @@ namespace RegionaleFeiertage.Region
             }
             else
             {
-                funcs.Add(Ostern, Pfingsten, Reformationstag);
+                funcs.AddRange([Ostern, Pfingsten, Reformationstag]);
             }
             var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
             return new Region("Brandenburg", "BB", feiertage);
@@ -185,7 +185,7 @@ namespace RegionaleFeiertage.Region
         Weltknuddeltag, TagDerErde, StarWarsDay, Weltumwelttag, Weltblutspendetag, InternationalerMännertag,
         Florianitag, TagDerBefreiung, Muttertag, Vatertag, Handtuchtag, TowelDay,
         SystemAdministratorAppreciationDay, Rupertitag, TagDerVolksabstimmung, Halloween,
-        BeginnWinterzeit, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettag,
+        BeginnWinterzeit, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettTag,
         Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester
         };
 
@@ -201,7 +201,7 @@ namespace RegionaleFeiertage.Region
 
             }
             //I might b lost in the sauce
-            feiern.Add(FeiertageFactory.CreateCommonGermanFeiertagList(year));
+            feiern.AddRange(FeiertageFactory.CreateCommonGermanFeiertagList(year));
 
 
             if (includeSonntage)
