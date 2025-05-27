@@ -43,12 +43,13 @@ namespace RegionaleFeiertage.CommandLine
             Console.WriteLine($"TaskJuggler Output: {asTaskjugglerCode}");
 
             // Your logic here
-            var holidays = FeiertagsRechner.GetFeiertage(year.Value, region, inklusiveSonntage);
+            //var holidays = FeiertagsRechner.GetFeiertage(year.Value, region, inklusiveSonntage);
 
-            if (asTaskjugglerCode)
-                Console.WriteLine(TaskjugglerFormatter.Format(holidays));
-            else
-                holidays.ForEach(h => Console.WriteLine($"{h.Datum:yyyy-MM-dd} - {h.Name}"));
+            // if (asTaskjugglerCode) {
+            //     Console.WriteLine(TaskjugglerFormatter.Format(holidays));
+            // }else {
+            //     holidays.ForEach(h => Console.WriteLine($"{h.Datum:yyyy-MM-dd} - {h.Name}"));
+            //}
         }
     }
 }

@@ -7,16 +7,20 @@ using System;
 
     Console.WriteLine ("Starting application");
 
-    var host = Host.CreateDefaultBuilder(args);
-    host.ConfigureServices((context, services) =>
+    var hostBuilder = Host.CreateDefaultBuilder(args);
+    hostBuilder.ConfigureServices((context, services) =>
     {
         services.AddHostedService<Worker>();
         services.AddTransient<CommandHandler>();
         services.AddSerilog();
-    })
-    .Build();
+    });
     // Use Serilog as the logging provider
-    host.UseSerilog();
+    hostBuilder.UseSerilog();
 
-    await host.RunConsoleAsync();
+var host = hostBuilder.Build();
+//var logger = host.Services.GetRequiredService<ILogger>();
+await host.RunAsync();
+
+//Makes Builder and runs it for you
+//await hostBuilder.RunConsoleAsync();
 
