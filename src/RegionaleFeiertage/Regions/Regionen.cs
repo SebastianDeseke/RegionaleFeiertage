@@ -220,7 +220,7 @@ namespace RegionaleFeiertage.Regions
             return new Region("Alle", "All", feiernlist);
         }
 
-        public static List<Region> GetAllregions(int year, bool includeSonntage = false)
+        public static List<Region> GetAllRegions(int year, bool includeSonntage = false)
         {
             var regionFuncs = new List<Func<int, bool, Region>>
             {

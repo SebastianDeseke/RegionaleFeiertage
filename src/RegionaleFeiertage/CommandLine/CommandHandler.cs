@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using RegionaleFeiertage.Regions;
 
 namespace RegionaleFeiertage.CommandLine
 {
@@ -65,5 +66,21 @@ namespace RegionaleFeiertage.CommandLine
                 .Replace("ü", "ue")
                 .Replace("ß", "ss");
         }
+
+        public static Region GetRegion(string region, int year, bool includingSundays)
+{
+    var search = Canonicalize(region);
+    var allRegions = Regionen.GetAllRegions(year, includingSundays); // You may need to implement this
+
+    foreach (var r in allRegions)
+    {
+        if (Canonicalize(r.Name) == search || Canonicalize(r.Shortname) == search)
+        {
+            return r;
+        }
+    }
+
+    throw new ArgumentException($"Region '{region}' unbekannt.");
+}
     }
 }
