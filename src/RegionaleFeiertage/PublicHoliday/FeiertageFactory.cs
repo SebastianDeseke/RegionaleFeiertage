@@ -1,4 +1,5 @@
 using System;
+using RegionaleFeiertage.Regions;
 using static RegionaleFeiertage.PublicHoliday.FeiertageDefinition;
 
 namespace RegionaleFeiertage.PublicHoliday
@@ -30,7 +31,14 @@ namespace RegionaleFeiertage.PublicHoliday
 
         public static List<Feiertag> FeiertagFunctionListToFeiertagList(List<Func<int, Feiertag>> funcs, int year)
         {
+            //ah yes, lambda expretion
             return funcs.Select(f => f(year)).ToList();
+        }
+
+        public static List<Region> RegionFunctionListToRegionList(List<Func<int, bool, Region>> funcs, int year, bool includeSonntage)
+        {
+            //again
+            return funcs.Select(f => f(year, includeSonntage)).ToList();
         }
 
         public static List<Feiertag> CreateFeiertagList(int year, List<Func<int, Feiertag>> extraFuncs)

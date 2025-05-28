@@ -1,7 +1,7 @@
 using System;
 using RegionaleFeiertage.PublicHoliday;
 
-namespace RegionaleFeiertage.Region
+namespace RegionaleFeiertage.Regions
 {
     public class Region
     {

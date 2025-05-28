@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace RegionaleFeiertage.CommandLine
@@ -5,26 +6,29 @@ namespace RegionaleFeiertage.CommandLine
     public class CommandHandler
     {
         private readonly ILogger<CommandHandler> _logger;
+        private readonly IConfiguration _config;
 
-        public CommandHandler(ILogger<CommandHandler> logger)
+        public CommandHandler(ILogger<CommandHandler> logger, IConfiguration config)
         {
             _logger = logger;
+            _config = config;
         }
 
         public void Run(string[] args)
         {
-            _logger.LogInformation("Parsing command-line arguments: {Args}", string.Join(" ", args));
+            Console.WriteLine("Parsing command-line arguments: {0}", string.Join(" ", args));
+            Console.WriteLine("Argumetn passed platform was {0}", _config.GetValue<string>("platform"));
             string region = "Alle";
-            bool inklusiveSonntage = false;
+            bool includeSonntage = false;
             bool asTaskjugglerCode = false;
             int? year = null;
 
             foreach (var arg in args)
             {
-                if (arg.StartsWith("--region="))
-                    region = arg.Substring("--region=".Length);
-                else if (arg == "--inklusiveSonntage")
-                    inklusiveSonntage = true;
+                if (arg.StartsWith("--region"))
+                    region = _config.GetValue<string>("region").ToLower();
+                else if (arg == "--includeSonntage")
+                    includeSonntage = true;
                 else if (arg == "--asTaskjugglerCode")
                     asTaskjugglerCode = true;
                 else if (int.TryParse(arg, out int y))
@@ -39,7 +43,7 @@ namespace RegionaleFeiertage.CommandLine
 
             Console.WriteLine($"Jahr: {year}");
             Console.WriteLine($"Region: {region}");
-            Console.WriteLine($"Inklusive Sonntage: {inklusiveSonntage}");
+            Console.WriteLine($"Inklusive Sonntage: {includeSonntage}");
             Console.WriteLine($"TaskJuggler Output: {asTaskjugglerCode}");
 
             // Your logic here
@@ -50,6 +54,16 @@ namespace RegionaleFeiertage.CommandLine
             // }else {
             //     holidays.ForEach(h => Console.WriteLine($"{h.Datum:yyyy-MM-dd} - {h.Name}"));
             //}
+        }
+
+        public static string Canonicalize(string input)
+        {
+            string lower = input.ToLower();
+            return lower.Replace("-", "")
+                .Replace("ä", "ae")
+                .Replace("ö", "oe")
+                .Replace("ü", "ue")
+                .Replace("ß", "ss");
         }
     }
 }
