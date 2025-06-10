@@ -1,8 +1,7 @@
 # 🇩🇪 Feiertage.NET
 A C# library that provides functions for calculating German (and some international) public holidays.
 Based on the structure and logic of the original [feiertage](https://github.com/wlbr/feiertage) Go package.
-## Regional Public Holidays
-## Regionale Feiertage Ergänzen
+**Regional Public Holidays (en) Regionale Feiertage Ergänzen (de)**
 
 ## ✨ Features
 
@@ -13,6 +12,12 @@ Based on the structure and logic of the original [feiertage](https://github.com/
 - Easily extendable and grouped by logic in static methods
 
 ## 📦 Usage
+
+```bash
+dotnet run -- --region <Bundesland> <Jahr>
+```
+
+## Method Usage
 
 ```csharp
 using Feiertage;
@@ -68,6 +73,7 @@ public override string ToString() {}
 ## Planned Improvements
 
 - Regional filtering (e.g., Bavaria-only holidays)
+- Wrong input and error handling
 - Feiertagsrechner.AlleFeiertage(int year) convenience method
 - Unit tests using xUnit
 - NuGet package publication

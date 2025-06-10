@@ -17,8 +17,7 @@ namespace RegionaleFeiertage.CommandLine
 
         public void Run(string[] args)
         {
-            Console.WriteLine("Parsing command-line arguments: {0}", string.Join(" ", args));
-            Console.WriteLine("Argumetn passed platform was {0}", _config.GetValue<string>("platform"));
+            _logger.LogInformation("Parsing command-line arguments: {Args}", string.Join(" ", args));
             string region = "Alle";
             bool includeSonntage = false;
             bool asTaskjugglerCode = false;
@@ -27,6 +26,7 @@ namespace RegionaleFeiertage.CommandLine
             foreach (var arg in args)
             {
                 if (arg.StartsWith("--region"))
+                //using config to catch flags as they are saved at runtime
                     region = _config.GetValue<string>("region").ToLower();
                 else if (arg == "--includeSonntage")
                     includeSonntage = true;
@@ -39,6 +39,7 @@ namespace RegionaleFeiertage.CommandLine
             if (year is null)
             {
                 Console.WriteLine("Kein Jahr angegeben.");
+                _logger.LogInformation("Kein Jahr angegeben.");
                 return;
             }
 
@@ -68,19 +69,18 @@ namespace RegionaleFeiertage.CommandLine
         }
 
         public static Region GetRegion(string region, int year, bool includingSundays)
-{
-    var search = Canonicalize(region);
-    var allRegions = Regionen.GetAllRegions(year, includingSundays); // You may need to implement this
-
-    foreach (var r in allRegions)
-    {
-        if (Canonicalize(r.Name) == search || Canonicalize(r.Shortname) == search)
         {
-            return r;
-        }
-    }
+            var search = Canonicalize(region);
+            var allRegions = Regionen.GetAllRegions(year, includingSundays);
 
-    throw new ArgumentException($"Region '{region}' unbekannt.");
-}
+            foreach (var r in allRegions)
+            {
+                if (Canonicalize(r.Name).Equals(search) || Canonicalize(r.Shortname).Equals(search))
+                {
+                    return r;
+                }
+            }
+            throw new ArgumentException($"Region '{region}' unbekannt.");
+        }
     }
 }
