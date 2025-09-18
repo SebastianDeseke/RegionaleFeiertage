@@ -18,4 +18,8 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+<ItemGroup>
+    <ProjectReference Include="..\..\src\RegionaleFeiertage.Lib\RegionaleFeiertage.Lib.csproj" />
+</ItemGroup>
+
 </Project>
