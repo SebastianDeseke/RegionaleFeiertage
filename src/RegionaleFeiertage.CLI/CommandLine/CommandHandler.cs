@@ -69,8 +69,9 @@ public class CommandHandler
         Console.WriteLine($"Inklusive Sonntage: {includeSonntage}");
         Console.WriteLine($"TaskJuggler Output: {asTaskjugglerCode}");
 
-        
+
         var holidays = GetRegion(region, (int)year, includeSonntage);
+        Console.WriteLine(holidays);
 
         // if (asTaskjugglerCode) {
         //     Console.WriteLine(TaskjugglerFormatter.Format(holidays));

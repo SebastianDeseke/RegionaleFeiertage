@@ -81,6 +81,10 @@ public static class Regionen
     public static Region MecklenburgVorpommern(int year, bool includeSonntage = false)
     {
         var funcs = new List<Func<int, Feiertag>> { Reformationstag };
+        if (year >= 2023)
+        {
+            funcs.Add(InternationalerFrauentag);
+        }
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Mecklenburg-Vorpommern", "MV", feiertage);
     }

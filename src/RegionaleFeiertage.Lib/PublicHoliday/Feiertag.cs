@@ -9,6 +9,6 @@ public class Feiertag
 
     public override string ToString()
     {
-        return $"{Datum:yyyy-mm-dd} - {Name}";
+        return $"{Datum:yyyy-MM-dd} - {Name}";
     }
 }
