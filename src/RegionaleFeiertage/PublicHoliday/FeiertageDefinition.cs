@@ -42,7 +42,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 1, 1),
-                Name = "Neujahr"
+                Name = "Neujahr",
+                Status = "official"
             };
         }
 
@@ -52,7 +53,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 1, 6),
-                Name = "Epiphanias"
+                Name = "Epiphanias",
+                Status = "regional"
             };
         }
 
@@ -80,7 +82,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 2, 14),
-                Name = "Valentinstag"
+                Name = "Valentinstag",
+                Status = "recognized"
             };
         }
 
@@ -90,7 +93,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 1, 27),
-                Name = "Internationaler Tag des Gedenkens an die Opfer des Holocaust"
+                Name = "Internationaler Tag des Gedenkens an die Opfer des Holocaust",
+                Status = ""
             };
         }
 
@@ -100,7 +104,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 3, 8),
-                Name = "Internationaler Frauentag"
+                Name = "Internationaler Frauentag",
+                Status = "recognized"
             };
         }
 
@@ -190,7 +195,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = Ostern(year).Datum.AddDays(-2),
-                Name = "Karfreitag"
+                Name = "Karfreitag",
+                Status = "official"
             };
         }
 
@@ -214,7 +220,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, month, day),
-                Name = "Ostern"
+                Name = "Ostern",
+                Status = "official"
             };
         }
 
@@ -236,7 +243,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = Ostern(year).Datum.AddDays(1),
-                Name = "Ostermontag"
+                Name = "Ostermontag",
+                Status = "official"
             };
         }
 
@@ -246,7 +254,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 4, 22),
-                Name = "Tag der Erde"
+                Name = "Tag der Erde",
+                Status = "unofficial"
             };
         }
 
@@ -266,7 +275,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 5, 1),
-                Name = "Tag der Arbeit"
+                Name = "Tag der Arbeit",
+                Status = "official"
             };
         }
 
@@ -276,7 +286,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 5, 3),
-                Name = "Internationaler Tag der Pressefreiheit"
+                Name = "Internationaler Tag der Pressefreiheit",
+                Status = "unofficial"
             };
         }
 
@@ -296,7 +307,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 5, 4),
-                Name = "Star Wars Day"
+                Name = "Star Wars Day",
+                Status = "unofficial"
             };
         }
 
@@ -318,7 +330,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = mayFirst.AddDays(offset + 7),
-                Name = "Muttertag"
+                Name = "Muttertag",
+                Status = "recognized"
             };
         }
 
@@ -328,7 +341,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = Ostern(year).Datum.AddDays(39),
-                Name = "Christi Himmelfahrt"
+                Name = "Christi Himmelfahrt",
+                Status = "official"
             };
         }
 
@@ -374,7 +388,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = Ostern(year).Datum.AddDays(50),
-                Name = "Pfingstmontag"
+                Name = "Pfingstmontag",
+                Status = "official"
             };
         }
 
@@ -394,12 +409,13 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = Ostern(year).Datum.AddDays(60),
-                Name = "Fronleichnam"
+                Name = "Fronleichnam",
+                Status = "regional" //recognized in NRW
             };
         }
 
         // InternationalerKindertag is special to Germany and Austrian and
-        // isnot the same as Weltkindertag (World Children's Day), a fixed date.
+        // is not the same as Weltkindertag (World Children's Day), a fixed date.
         public static Feiertag InternationalerKindertag(int year)
         {
             return new Feiertag
@@ -415,7 +431,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 6, 5),
-                Name = "Weltumwelttag"
+                Name = "Weltumwelttag",
+                Status = "unofficial"
             };
         }
 
@@ -467,7 +484,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 8, 15),
-                Name = "Mariä Himmelfahrt"
+                Name = "Mariä Himmelfahrt",
+                Status = "regional"
             };
         }
 
@@ -487,11 +505,12 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 10, 3),
-                Name = "Tag der deutschen Einheit"
+                Name = "Tag der deutschen Einheit",
+                Status = "official"
             };
         }
 
-        // TagDerVolksabstimmung is Referendum Day in Carinthia, a fixed date.
+        // TagDerVolksabstimmung is Referendum Day in Carinthia, a fixed date. Only in Austria?
         public static Feiertag TagDerVolksabstimmung(int year)
         {
             return new Feiertag
@@ -520,7 +539,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 10, 31),
-                Name = "Reformationstag"
+                Name = "Reformationstag",
+                Status = "regional"
             };
         }
 
@@ -530,7 +550,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 10, 31),
-                Name = "Halloween"
+                Name = "Halloween",
+                Status = "unofficial"
             };
         }
 
@@ -552,7 +573,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 11, 1),
-                Name = "Allerheiligen"
+                Name = "Allerheiligen",
+                Status = "regional"
             };
         }
 
@@ -582,7 +604,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = new DateTime(year, 11, 19),
-                Name = "Internationaler Männertag"
+                Name = "Internationaler Männertag",
+                Status = "un"
             };
         }
 
@@ -624,7 +647,8 @@ namespace RegionaleFeiertage.PublicHoliday
             return new Feiertag
             {
                 Datum = nov22.AddDays(-daysBackToWednesday),
-                Name = "Buß- und Bettag"
+                Name = "Buß- und Bettag",
+                Status = "regional"
             };
         }
 

@@ -23,10 +23,31 @@ namespace RegionaleFeiertage.CommandLine
             bool asTaskjugglerCode = false;
             int? year = null;
 
+            /* for (int i = 0; i < args.Length; i++)
+                        {
+                            switch (args[i])
+                            {
+                                case "--region":
+                                    if (i + 1 < args.Length)
+                                    {
+                                        region = args[i + 1];
+                                        i++;
+                                    }
+                                    break;
+                                case "--year":
+                                    if (i + 1 < args.Length && int.TryParse(args[i + 1], out int y))
+                                    {
+                                        year = y;
+                                        i++;
+                                    }
+                                    break;
+                            }
+                        } */
+
             foreach (var arg in args)
             {
                 if (arg.StartsWith("--region"))
-                //using config to catch flags as they are saved at runtime
+                    //using config to catch flags as they are saved at runtime
                     region = _config.GetValue<string>("region").ToLower();
                 else if (arg == "--includeSonntage")
                     includeSonntage = true;
