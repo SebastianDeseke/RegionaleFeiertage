@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using RegionaleFeiertage.Lib.Regions;
+using RegionaleFeiertage.Lib.Service;
 
 namespace RegionaleFeiertage.CLI.CommandLine;
 
@@ -70,7 +70,7 @@ public class CommandHandler
         Console.WriteLine($"TaskJuggler Output: {asTaskjugglerCode}");
 
 
-        var holidays = GetRegion(region, (int)year, includeSonntage);
+        var holidays = RegionenService.GetRegion(region, (int)year, includeSonntage);
         Console.WriteLine(holidays);
 
         // if (asTaskjugglerCode) {
@@ -78,30 +78,5 @@ public class CommandHandler
         // }else {
         //     holidays.ForEach(h => Console.WriteLine($"{h.Datum:yyyy-MM-dd} - {h.Name}"));
         //}
-    }
-
-    public static string Canonicalize(string input)
-    {
-        string lower = input.ToLower();
-        return lower.Replace("-", "")
-            .Replace("ä", "ae")
-            .Replace("ö", "oe")
-            .Replace("ü", "ue")
-            .Replace("ß", "ss");
-    }
-
-    public static Region GetRegion(string region, int year, bool includingSundays)
-    {
-        var search = Canonicalize(region);
-        var allRegions = Regionen.GetAllRegions(year, includingSundays);
-
-        foreach (var r in allRegions)
-        {
-            if (Canonicalize(r.Name).Equals(search) || Canonicalize(r.Shortname).Equals(search))
-            {
-                return r;
-            }
-        }
-        throw new ArgumentException($"Region '{region}' unbekannt.");
     }
 }
