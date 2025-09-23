@@ -74,7 +74,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 1, 21),
-            Name = "Weltknuddeltag"
+            Name = "Weltknuddeltag",
+            Status = "special"
         };
     }
 
@@ -96,7 +97,7 @@ public static class FeiertageDefinition
         {
             Datum = new DateTime(year, 1, 27),
             Name = "Internationaler Tag des Gedenkens an die Opfer des Holocaust",
-            Status = ""
+            Status = "special"
         };
     }
 
@@ -118,7 +119,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 3, 19),
-            Name = "Josefitag"
+            Name = "Josefitag",
+            Status = "special"
         };
     }
 
@@ -128,7 +130,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(-52),
-            Name = "Weiberfastnacht"
+            Name = "Weiberfastnacht",
+            Status = "special"
         };
     }
 
@@ -138,7 +141,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(-49),
-            Name = "Karnevalssonntag"
+            Name = "Karnevalssonntag",
+            Status = "special"
         };
     }
 
@@ -148,7 +152,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(-48),
-            Name = "Rosenmontag"
+            Name = "Rosenmontag",
+            Status = "special"
         };
     }
 
@@ -158,7 +163,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(-47),
-            Name = "Fastnacht"
+            Name = "Fastnacht",
+            Status = "special"
         };
     }
 
@@ -168,7 +174,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(-46),
-            Name = "Aschermittwoch"
+            Name = "Aschermittwoch",
+            Status = "special"
         };
     }
 
@@ -178,7 +185,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(-7),
-            Name = "Palmsonntag"
+            Name = "Palmsonntag",
+            Status ="special"
         };
     }
 
@@ -188,7 +196,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(-3),
-            Name = "Gründonnerstag"
+            Name = "Gründonnerstag",
+            Status = "special"
         };
     }
 
@@ -268,7 +277,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = lastMarchDay.AddDays(-daysBack),
-            Name = "Beginn Sommerzeit"
+            Name = "Beginn Sommerzeit",
+            Status = "special"
         };
     }
 
@@ -290,7 +300,7 @@ public static class FeiertageDefinition
         {
             Datum = new DateTime(year, 4, 22),
             Name = "Tag der Erde",
-            Status = "unofficial"
+            Status = "special"
         };
     }
 
@@ -300,7 +310,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 4, 30),
-            Name = "Walpurgisnacht"
+            Name = "Walpurgisnacht",
+            Status = "special"
         };
     }
 
@@ -322,7 +333,7 @@ public static class FeiertageDefinition
         {
             Datum = new DateTime(year, 5, 3),
             Name = "Internationaler Tag der Pressefreiheit",
-            Status = "unofficial"
+            Status = "special"
         };
     }
 
@@ -332,7 +343,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 5, 4),
-            Name = "Florianitag"
+            Name = "Florianitag",
+            Status = "special"
         };
     }
 
@@ -343,7 +355,7 @@ public static class FeiertageDefinition
         {
             Datum = new DateTime(year, 5, 4),
             Name = "Star Wars Day",
-            Status = "unofficial"
+            Status = "special"
         };
     }
 
@@ -353,7 +365,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 5, 8),
-            Name = "Tag der Befreiung"
+            Name = "Tag der Befreiung",
+            Status = "special"
         };
     }
 
@@ -395,7 +408,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 5, 25),
-            Name = "Handtuchtag"
+            Name = "Handtuchtag",
+            Status = "special"
         };
     }
 
@@ -413,7 +427,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(49),
-            Name = "Pfingsten"
+            Name = "Pfingsten",
+            Status = "special"
         };
     }
 
@@ -434,7 +449,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = Ostern(year).Datum.AddDays(56),
-            Name = "Dreifaltigkeitssonntag"
+            Name = "Dreifaltigkeitssonntag",
+            Status = "special"
         };
     }
 
@@ -456,7 +472,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 6, 1),
-            Name = "Internationaler Kindertag"
+            Name = "Internationaler Kindertag",
+            Status = "special"
         };
     }
 
@@ -467,7 +484,7 @@ public static class FeiertageDefinition
         {
             Datum = new DateTime(year, 6, 5),
             Name = "Weltumwelttag",
-            Status = "unofficial"
+            Status = "special"
         };
     }
 
@@ -477,7 +494,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 6, 8),
-            Name = "Tag des Meeres"
+            Name = "Tag des Meeres",
+            Status = "special"
         };
     }
 
@@ -487,7 +505,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 6, 14),
-            Name = "Weltblutspendetag"
+            Name = "Weltblutspendetag",
+            Status = "special"
         };
     }
 
@@ -497,7 +516,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 6, 20),
-            Name = "Weltflüchtlingstag"
+            Name = "Weltflüchtlingstag",
+            Status = "special"
         };
     }
 
@@ -509,7 +529,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = lastFridayJuly.AddDays(-daysBack),
-            Name = "System Administrator Appreciation Day"
+            Name = "System Administrator Appreciation Day",
+            Status = "special"
         };
     }
 
@@ -530,7 +551,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 9, 24),
-            Name = "Rupertitag"
+            Name = "Rupertitag",
+            Status = "special"
         };
     }
 
@@ -545,16 +567,6 @@ public static class FeiertageDefinition
         };
     }
 
-    // TagDerVolksabstimmung is Referendum Day in Carinthia, a fixed date. Only in Austria?
-    public static Feiertag TagDerVolksabstimmung(int year)
-    {
-        return new Feiertag
-        {
-            Datum = new DateTime(year, 10, 10),
-            Name = "Tag der Volksabstimmung"
-        };
-    }
-
     // Erntedankfest is Thanksgiving or Harvest Festival, the first Sunday of October.
     // The german Erntedankfest is not the same than the US Thanksgiving.
     public static Feiertag Erntedankfest(int year)
@@ -564,7 +576,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = firstOfOctober.AddDays(daysToSunday),
-            Name = "Erntedankfest"
+            Name = "Erntedankfest",
+            Status = "special"
         };
     }
 
@@ -586,7 +599,7 @@ public static class FeiertageDefinition
         {
             Datum = new DateTime(year, 10, 31),
             Name = "Halloween",
-            Status = "unofficial"
+            Status = "special"
         };
     }
 
@@ -598,7 +611,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = lastOfOctober.AddDays(-daysBackToSunday),
-            Name = "Beginn Winterzeit"
+            Name = "Beginn Winterzeit",
+            Status = "special"
         };
     }
 
@@ -619,7 +633,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 11, 2),
-            Name = "Allerseelen"
+            Name = "Allerseelen",
+            Status = "special"
         };
     }
 
@@ -629,7 +644,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 11, 11),
-            Name = "Martinstag"
+            Name = "Martinstag",
+            Status = "special"
         };
     }
 
@@ -640,7 +656,7 @@ public static class FeiertageDefinition
         {
             Datum = new DateTime(year, 11, 19),
             Name = "Internationaler Männertag",
-            Status = "un"
+            Status = "special"
         };
     }
 
@@ -650,7 +666,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 11, 11, 11, 11, 11),
-            Name = "Karnevalsbeginn"
+            Name = "Karnevalsbeginn",
+            Status = "special"
         };
     }
 
@@ -660,7 +677,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 11, 15),
-            Name = "Leopolditag"
+            Name = "Leopolditag",
+            Status = "special"
         };
     }
 
@@ -696,7 +714,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = nov1.AddDays(21 + daysToThursday),
-            Name = "Thanksgiving (US)"
+            Name = "Thanksgiving (US)",
+            Status = "special"
         };
     }
 
@@ -708,7 +727,7 @@ public static class FeiertageDefinition
         {
             Datum = thanksgiving.Datum.AddDays(1),
             Name = "Blackfriday",
-            Status = "unofficial"
+            Status = "special"
         };
     }
 
@@ -741,18 +760,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = new DateTime(year, 12, 8),
-            Name = "Mariä unbefleckte Empfängnis"
-        };
-    }
-
-    // MariäEmpfängnis has a shorter name for MariäUnbefleckteEmpfängnis in Austria.
-    public static Feiertag MariäEmpfängnis(int year)
-    {
-        var f = MariäUnbefleckteEmpfängnis(year);
-        return new Feiertag
-        {
-            Datum = f.Datum,
-            Name = "Mariä Empfängnis"
+            Name = "Mariä unbefleckte Empfängnis",
+            Status = "special"
         };
     }
 
@@ -812,7 +821,8 @@ public static class FeiertageDefinition
         return new Feiertag
         {
             Datum = dec24.AddDays(-daysBackToSunday),
-            Name = "Vierter Advent"
+            Name = "Vierter Advent",
+            Status = "recognized"
         };
     }
 

@@ -187,7 +187,7 @@ public static class Regionen
     TagDesMeeres, Weltflüchtlingstag, BeginnSommerzeit, Walpurgisnacht, InternationalerTagDerPressefreiheit,
     Weltknuddeltag, TagDerErde, StarWarsDay, Weltumwelttag, Weltblutspendetag, InternationalerMännertag,
     Florianitag, TagDerBefreiung, Muttertag, Vatertag, Handtuchtag, TowelDay,
-    SystemAdministratorAppreciationDay, Rupertitag, TagDerVolksabstimmung, Halloween,
+    SystemAdministratorAppreciationDay, Rupertitag, Halloween,
     BeginnWinterzeit, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettTag,
     Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester
     };
