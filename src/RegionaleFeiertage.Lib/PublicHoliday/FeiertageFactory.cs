@@ -40,6 +40,12 @@ public static class FeiertageFactory
         return funcs.Select(f => f(year, includeSonntage)).ToList();
     }
 
+    //the same but without the year to make a getall without year input
+        public static List<Region> RegionFunctionListToRegionListNoYear(List<Func<Region>> funcs)
+    {
+        return funcs.Select(f => f()).ToList();
+    }
+
     public static List<Feiertag> CreateFeiertagList(int year, List<Func<int, Feiertag>> extraFuncs)
     {
         var feiern = CreateCommonGermanFeiertagList(year);

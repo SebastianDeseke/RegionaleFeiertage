@@ -41,26 +41,50 @@ public class RegionenService
         return FeiertageFactory.RegionFunctionListToRegionList(regionFuncs, year, includeSonntage);
     }
 
+    public static List<string> GetAllRegionsString()
+    {
+        var regionFuncs = new List<string>
+        {
+        "Baden-Württemberg",
+        "Bayern",
+        "Berlin",
+        "Brandenburg",
+        "Bremen",
+        "Hamburg",
+        "Hessen",
+        "Mecklenburg-Vorpommern",
+        "Niedersachsen",
+        "Nordrhein-Westfalen",
+        "Rheinland-Pfalz",
+        "Saarland",
+        "Sachsen",
+        "Sachsen-Anhalt",
+        "Schleswig-Holstein",
+        "Thüringen",
+        };
+        return regionFuncs;
+    }
+
     public static Dictionary<string, Region> GetAllRegionsDictionary(bool includeSonntage = false)
     {
         var dic = new Dictionary<string, Region>
         {
-            { "", new Region("Baden-Württemburg", "BW") },
-            { "", new Region("Bayern", "BY") },
-            { "", new Region("Berlin", "B") },
-            { "", new Region("Brandenburg", "BB") },
-            { "", new Region("Bremen", "HB") },
-            { "", new Region("Hamburg", "HH") },
-            { "", new Region("Hessen", "HE") },
-            { "", new Region("Mecklenburg-Vorpommern", "MV") },
-            { "", new Region("Niedersachsen", "NI") },
-            { "", new Region("Nordrhein-Westfalen", "NRW") },
-            { "", new Region("Rheinland-Pfalz", "RP") },
-            { "", new Region("Saarland", "SL") },
-            { "", new Region("Sachsen", "SN") },
-            { "", new Region("Sachsen-Anhalt", "ST") },
-            { "", new Region("Schleswig-Holstein", "SH") },
-            { "", new Region("Thüringen", "TH") }
+            { "baden-wuerttemburg", new Region("Baden-Württemburg", "BW") },
+            { "bayern", new Region("Bayern", "BY") },
+            { "berlin", new Region("Berlin", "B") },
+            { "brandenburg", new Region("Brandenburg", "BB") },
+            { "bremen", new Region("Bremen", "HB") },
+            { "hamburg", new Region("Hamburg", "HH") },
+            { "hessen", new Region("Hessen", "HE") },
+            { "mecklenburg-vorpommern", new Region("Mecklenburg-Vorpommern", "MV") },
+            { "niedersachen", new Region("Niedersachsen", "NI") },
+            { "nordrhein-westfalen", new Region("Nordrhein-Westfalen", "NRW") },
+            { "rheinland-pfalz", new Region("Rheinland-Pfalz", "RP") },
+            { "saarland", new Region("Saarland", "SL") },
+            { "sachsen", new Region("Sachsen", "SN") },
+            { "sachsen-anhalt", new Region("Sachsen-Anhalt", "ST") },
+            { "schleswig-holstein", new Region("Schleswig-Holstein", "SH") },
+            { "thueringen", new Region("Thüringen", "TH") }
         };
 
         return dic;

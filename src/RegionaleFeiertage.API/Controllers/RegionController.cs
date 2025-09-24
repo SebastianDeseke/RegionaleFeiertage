@@ -12,18 +12,20 @@ public class RegionController : ControllerBase
     private readonly Dictionary<string, Region> regdic = RegionenService.GetAllRegionsDictionary();
 
     [HttpGet]
-    public ActionResult<List<string>> GetAllRegions(string region, int year, bool inculdeSonntage)
+    public ActionResult<List<string>> GetAllRegions()
     {
-        var regions = RegionenService.GetAllRegionsString(year);
+        var regions = RegionenService.GetAllRegionsString();
         return regions;
     }
 
     [HttpGet("{regionstr}/{year}")]
-    public ActionResult<Region> GetRegion(string regionstr, int year)
+    public ActionResult<Region> GetRegion(string regionstr, int year, bool includeSonntage)
     {
         if (regdic.TryGetValue(regionstr, out Region result))
         {
-            return result;
+            //getting the full region with feiertage
+            var fullregion = RegionenService.GetRegion(regionstr, year, includeSonntage);
+            return fullregion;
         }
         else
         {

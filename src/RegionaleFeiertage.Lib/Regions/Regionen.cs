@@ -167,7 +167,7 @@ public static class Regionen
 
     // All returns a Region object holding all public holidays/feast days known to this program.
     // Not all of them are public holidays (basically 'work free' days).
-    public static Region All(int year, bool includeSonntage = false)
+    public static Region AllHolidays(int year, bool includeSonntage = false)
     {
         /* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
         HolocaustGedenktag, InternationalerFrauentag, Josefitag,
