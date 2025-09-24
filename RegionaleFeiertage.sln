@@ -9,11 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionaleFeiertage.Lib", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionaleFeiertage.CLI", "src\RegionaleFeiertage.CLI\RegionaleFeiertage.CLI.csproj", "{D3927914-B279-4429-9C7B-3D15E8B8F80A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionaleFeiertage.API", "src\RegionaleFeiertage.API\RegionaleFeiertage.API.csproj", "{E71ED8CD-247B-4B57-B9CF-5D629A276DF2}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0C88DD14-F956-CE84-757C-A364CCF449FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionaleFeiertage.Tests", "test\RegionaleFeiertage.Tests\RegionaleFeiertage.Tests.csproj", "{4E47277E-5E09-444A-819D-5F2879167517}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionaleFeiertage.API", "src\RegionaleFeiertage.API\RegionaleFeiertage.API.csproj", "{E71ED8CD-247B-4B57-B9CF-5D629A276DF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionaleFeiertage.LibTests", "test\RegionaleFeiertage.LibTests\RegionaleFeiertage.LibTests.csproj", "{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,18 +49,6 @@ Global
 		{D3927914-B279-4429-9C7B-3D15E8B8F80A}.Release|x64.Build.0 = Release|Any CPU
 		{D3927914-B279-4429-9C7B-3D15E8B8F80A}.Release|x86.ActiveCfg = Release|Any CPU
 		{D3927914-B279-4429-9C7B-3D15E8B8F80A}.Release|x86.Build.0 = Release|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Debug|x64.Build.0 = Debug|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Debug|x86.Build.0 = Debug|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Release|x64.ActiveCfg = Release|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Release|x64.Build.0 = Release|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Release|x86.ActiveCfg = Release|Any CPU
-		{4E47277E-5E09-444A-819D-5F2879167517}.Release|x86.Build.0 = Release|Any CPU
 		{E71ED8CD-247B-4B57-B9CF-5D629A276DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E71ED8CD-247B-4B57-B9CF-5D629A276DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E71ED8CD-247B-4B57-B9CF-5D629A276DF2}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -73,6 +61,18 @@ Global
 		{E71ED8CD-247B-4B57-B9CF-5D629A276DF2}.Release|x64.Build.0 = Release|Any CPU
 		{E71ED8CD-247B-4B57-B9CF-5D629A276DF2}.Release|x86.ActiveCfg = Release|Any CPU
 		{E71ED8CD-247B-4B57-B9CF-5D629A276DF2}.Release|x86.Build.0 = Release|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Debug|x64.Build.0 = Debug|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Debug|x86.Build.0 = Debug|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Release|x64.ActiveCfg = Release|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Release|x64.Build.0 = Release|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,7 +80,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F0016E67-A279-4FAA-AB1D-A7B4980BB48C} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{D3927914-B279-4429-9C7B-3D15E8B8F80A} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
-		{4E47277E-5E09-444A-819D-5F2879167517} = {0C88DD14-F956-CE84-757C-A364CCF449FC}
 		{E71ED8CD-247B-4B57-B9CF-5D629A276DF2} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{8D74C5FF-02DD-47F1-9BC5-A13629C7D416} = {0C88DD14-F956-CE84-757C-A364CCF449FC}
 	EndGlobalSection
 EndGlobal
