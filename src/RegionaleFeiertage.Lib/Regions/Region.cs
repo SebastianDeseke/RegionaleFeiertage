@@ -15,6 +15,14 @@ public class Region
         Feiertage = feiertage;
     }
 
+    //constructor whithout dependance on Feiertage list (no year input needed)
+    public Region(string name, string shortname)
+    {
+        Name = name;
+        Shortname = shortname;
+        Feiertage = [];
+    }
+
     public override string ToString()
     {
         var result = $"{Name} ({Shortname})";

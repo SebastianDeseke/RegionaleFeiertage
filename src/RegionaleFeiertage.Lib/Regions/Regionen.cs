@@ -221,30 +221,4 @@ public static class Regionen
 
         return new Region("Alle", "All", feiernlist);
     }
-
-    public static List<Region> GetAllRegions(int year, bool includeSonntage = false)
-    {
-        var regionFuncs = new List<Func<int, bool, Region>>
-        {
-        BadenWürttemberg,
-        Bayern,
-        Berlin,
-        Brandenburg,
-        Bremen,
-        Hamburg,
-        Hessen,
-        MecklenburgVorpommern,
-        Niedersachsen,
-        NordrheinWestfalen,
-        RheinlandPfalz,
-        Saarland,
-        Sachsen,
-        SachsenAnhalt,
-        SchleswigHolstein,
-        Thüringen,
-        Deutschland
-        };
-
-        return FeiertageFactory.RegionFunctionListToRegionList(regionFuncs, year, includeSonntage);
-    }
 }
