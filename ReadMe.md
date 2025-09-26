@@ -6,7 +6,7 @@ Based on the structure and logic of the original [feiertage](https://github.com/
 ## ✨ Features
 
 - Calculates **fixed** and **movable** holidays (e.g., Easter, Reformationstag, Karfreitag, etc.)
-- Includes regional holidays such as **Rupertitag**, **Leopolditag**, **Mariä Empfängnis**, etc.
+- Includes regional holidays such as **Rupertitag**, **Mariä Empfängnis**, **Epiphanias**, etc.
 - Supports special days like **Totensonntag**, **Karnevalsbeginn**, **Erster Advent**, and **Black Friday**
 - Fully translated from Go to idiomatic and testable C# code
 - Easily extendable and grouped by logic in static methods
@@ -15,6 +15,11 @@ Based on the structure and logic of the original [feiertage](https://github.com/
 
 ```bash
 dotnet run -- --region <Bundesland> <Jahr>
+```
+
+For example:
+```bash
+dotnet run -- --region Berlin 2022
 ```
 
 ## Method Usage
@@ -26,8 +31,8 @@ using Feiertage;
 var easter = Feiertagsrechner.Ostersonntag(2025);
 Console.WriteLine($"{easter.Name}: {easter.Datum.ToShortDateString()}");
 
-// Or get a full list for a year (example if you implement it)
-var all = Feiertagsrechner.AlleFeiertage(2025);
+// Or get a full list for a year
+var all = Feiertagsrechner.AllFeiertage(2025);
 foreach (var tag in all)
 {
     Console.WriteLine($"{tag.Name}: {tag.Datum:d}");
@@ -43,9 +48,9 @@ public static Feiertag Feiertagsname(int year)
 {
     return new Feiertag
     {
-        //calculations happen here
-        Datum = new DateTime(...),
+        Datum = new DateTime(year, month, day),
         Name = "Feiertagsname"
+        Status = "status"
     };
 }
 ```
@@ -57,9 +62,14 @@ public class Feiertag
 {
     public DateTime Datum { get; set; }
     public string Name { get; set; }
-}
+    //official -> standard free day      special -> not always recognized      recognized -> noted but not free        regional -> regional off
+    public string Status { get; set; }
 
-public override string ToString() {}
+    public override string ToString()
+    {
+        return $"{Datum:yyyy-MM-dd} - {Name}";
+    }
+}
 ```
 
 ## Covered Holidays
@@ -79,4 +89,5 @@ public override string ToString() {}
 - NuGet package publication
 
 ## License
-
+This project is licensed under the GNU General Public License v3.0.
+For alternative licensing options (e.g., commercial use), please contact me.
