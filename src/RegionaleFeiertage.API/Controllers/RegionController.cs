@@ -29,7 +29,7 @@ public class RegionController : ControllerBase
         }
         else
         {
-            throw new ArgumentException($"Region '{regionstr}' unbekannt.");
+            return NotFound($"Region '{regionstr}' unbekannt.");
         }
     }
 }
