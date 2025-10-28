@@ -1,6 +1,8 @@
 **/bin
 **/obj
 **/vscode
+**/publish
 **/appsettings.*.json
 **/.github
 deploy.sh
+setup-ssl.sh
