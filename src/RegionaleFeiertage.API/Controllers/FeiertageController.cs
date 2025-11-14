@@ -24,7 +24,7 @@ public class FeiertageController : ControllerBase
         {
             if (tag.Name.Equals(feiertagstr))
             {
-                return tag.Name;
+                return tag.Name + "\n" +tag.Datum + "\n" + tag.Status;
             }
         }
         return NotFound($"Feiertag {feiertagstr} ist unbekannt.");

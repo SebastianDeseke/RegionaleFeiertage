@@ -13,6 +13,11 @@ Based on the structure and logic of the original [feiertage](https://github.com/
 
 ## 📦 Usage
 
+There are 3 folders under /src that cover different parts of this project. There is the Library (Lib), Command line interface (CLI) and the API therefor (API). Both the CLI and the API use the logic in the Library.
+
+### Command Line Interface (CLI)
+
+Under /src/RegionalFeiertage.CLI/:
 ```bash
 dotnet run -- --region <Bundesland> <Jahr>
 ```
@@ -21,6 +26,14 @@ For example:
 ```bash
 dotnet run -- --region Berlin 2022
 ```
+
+### API
+
+Under /src/RegionalFeiertage.API/:
+```bash
+dotnet run
+```
+Then under locahost got to /swagger to use swagger ui
 
 ## Method Usage
 
@@ -69,6 +82,16 @@ public class Feiertag
     {
         return $"{Datum:yyyy-MM-dd} - {Name}";
     }
+}
+```
+
+The Region class contains:
+
+```csharp
+public class Region {
+    public string Name { get; set; }
+    public string Shortname { get; set; }
+    public List<Feiertag> Feiertage { get; set; }
 }
 ```
 
