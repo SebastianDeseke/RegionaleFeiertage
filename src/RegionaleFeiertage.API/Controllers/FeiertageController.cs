@@ -3,7 +3,7 @@ using RegionaleFeiertage.Lib;
 using RegionaleFeiertage.Lib.PublicHoliday;
 using RegionaleFeiertage.Lib.Regions;
 
-namespace RegionaleFeiertage.API;
+namespace RegionaleFeiertage.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
