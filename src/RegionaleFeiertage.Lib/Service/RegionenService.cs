@@ -90,7 +90,7 @@ public class RegionenService
         return dic;
     }
 
-    public static Region GetRegion(string region, int year, bool includingSundays)
+    public static Region GetRegion(string region, int year, bool includingSundays = false)
     {
         var search = Canonicalize(region);
         var allRegions = GetAllRegions(year, includingSundays);

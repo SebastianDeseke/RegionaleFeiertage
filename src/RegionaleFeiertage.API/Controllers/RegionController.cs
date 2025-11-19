@@ -24,6 +24,7 @@ public class RegionController : ControllerBase
         if (regdic.TryGetValue(regionstr, out Region result))
         {
             //getting the full region with feiertage
+            Console.WriteLine("Getting region data for " + result.Name);
             var fullregion = RegionenService.GetRegion(regionstr, year, includeSonntage);
             return fullregion;
         }
