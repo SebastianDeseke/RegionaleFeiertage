@@ -31,6 +31,7 @@ public class RegionenTest
     [InlineData(2011, 2011, 4, 24)]
     [InlineData(2019, 2019, 4, 21)]
     [InlineData(2024, 2024, 3, 31)]
+    [InlineData(9999, 9999, 4, 12)]
     public void EasterCalculationTest(int year, int expYear, int expMonth, int expDay)
     {
         //2024-03-31
@@ -50,5 +51,42 @@ public class RegionenTest
         holidays.Sort((a, b) => a.Datum.CompareTo(b.Datum));
 
         Assert.Equal(expected: holidays, actual: Badewuerttemberg.Feiertage);
+    }
+
+    [Theory]
+    [InlineData(-1)]
+    [InlineData(0)]
+    [InlineData(1400)]
+    public void EasterInvalidYearsThrowsTest(int year)
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => FeiertageDefinition.Ostern(year));
+    }
+
+    [Fact]
+    public void BayernHasMoreHolidaysThanBerlinTest()
+    {
+        var bayern = Regionen.Bayern(2024);
+        var berlin = Regionen.Berlin(2024);
+
+        Assert.True(bayern.Feiertage.Count > berlin.Feiertage.Count);
+    }
+
+    [Fact]
+    public void FronleichnamTest()
+    {
+        var bw = Regionen.BadenWürttemberg(2024).Feiertage;
+        var be = Regionen.Berlin(2024).Feiertage;
+
+        Assert.Contains(bw, f => f.Name == "Fronleichnam");
+        Assert.DoesNotContain(be, f => f.Name == "Fronleichnam");
+    }
+
+    [Fact]
+    public void FeiertageNoDuplicatePerRegionTest ()
+    {
+        var region = Regionen.Bayern(2025);
+        var grouped = region.Feiertage.GroupBy(f => f.Name);
+
+        Assert.All(grouped, g => Assert.True(g.Count() == 1, $"Duplicate: {g.Key}"));
     }
 }
