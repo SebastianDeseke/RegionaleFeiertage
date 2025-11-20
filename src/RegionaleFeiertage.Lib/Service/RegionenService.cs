@@ -115,4 +115,13 @@ public class RegionenService
         }
         return allRegionsString;
     }
+
+    public static void YearCheck(int year)
+    {
+        //check if the given year is within the start of the gregorian calendar
+        if (!(year >= 1583))
+        {
+            throw new ArgumentOutOfRangeException(year.ToString(), "Year must be 1583 or later.");
+        }
+    }
 }

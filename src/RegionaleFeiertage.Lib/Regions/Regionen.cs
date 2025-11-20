@@ -1,4 +1,5 @@
 using RegionaleFeiertage.Lib.PublicHoliday;
+using RegionaleFeiertage.Lib.Service;
 using static RegionaleFeiertage.Lib.PublicHoliday.FeiertageDefinition;
 
 namespace RegionaleFeiertage.Lib.Regions;
@@ -7,6 +8,7 @@ public static class Regionen
 {
     public static Region BadenWürttemberg(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Epiphanias, Fronleichnam, Allerheiligen };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Baden-Württemburg", "BW", feiertage);
@@ -14,6 +16,7 @@ public static class Regionen
 
     public static Region Bayern(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Epiphanias, Fronleichnam, Allerheiligen };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Bayern", "BY", feiertage);
@@ -21,6 +24,7 @@ public static class Regionen
 
     public static Region Berlin(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { };
         if (year >= 2019)
         {
@@ -36,6 +40,7 @@ public static class Regionen
 
     public static Region Brandenburg(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { };
         if (includeSonntage)
         {
@@ -51,6 +56,7 @@ public static class Regionen
 
     public static Region Bremen(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { };
         if (year >= 2018)
         {
@@ -62,6 +68,7 @@ public static class Regionen
 
     public static Region Hamburg(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { };
         if (year >= 2018)
         {
@@ -73,6 +80,7 @@ public static class Regionen
 
     public static Region Hessen(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Fronleichnam };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Hessen", "HE", feiertage);
@@ -80,6 +88,7 @@ public static class Regionen
 
     public static Region MecklenburgVorpommern(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Reformationstag };
         if (year >= 2023)
         {
@@ -91,6 +100,7 @@ public static class Regionen
 
     public static Region Niedersachsen(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { };
         if (year >= 2018)
         {
@@ -102,6 +112,7 @@ public static class Regionen
 
     public static Region NordrheinWestfalen(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Fronleichnam, Allerheiligen };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Nordrhein-Westfalen", "NRW", feiertage);
@@ -109,6 +120,7 @@ public static class Regionen
 
     public static Region RheinlandPfalz(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Fronleichnam, Allerheiligen };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Rheinland-Pfalz", "RP", feiertage);
@@ -116,6 +128,7 @@ public static class Regionen
 
     public static Region Saarland(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Fronleichnam, MariäHimmelfahrt, Allerheiligen };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Saarland", "SL", feiertage);
@@ -123,6 +136,7 @@ public static class Regionen
 
     public static Region Sachsen(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Reformationstag, BußUndBettTag };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Sachsen", "SN", feiertage);
@@ -130,6 +144,7 @@ public static class Regionen
 
     public static Region SachsenAnhalt(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Epiphanias, Reformationstag };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Sachsen-Anhalt", "ST", feiertage);
@@ -137,6 +152,7 @@ public static class Regionen
 
     public static Region SchleswigHolstein(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { };
         if (year >= 2018)
         {
@@ -148,6 +164,7 @@ public static class Regionen
 
     public static Region Thüringen(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { Reformationstag };
         if (year >= 2019)
         {
@@ -160,6 +177,7 @@ public static class Regionen
     // Deutschland returns a Region object holding all public holidays that are Common in Germany
     public static Region Deutschland(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         var funcs = new List<Func<int, Feiertag>> { };
         var feiertage = FeiertageFactory.CreateFeiertagList(year, funcs);
         return new Region("Deutschland", "DE", feiertage);
@@ -169,6 +187,7 @@ public static class Regionen
     // Not all of them are public holidays (basically 'work free' days).
     public static Region AllFeiertage(int year, bool includeSonntage = false)
     {
+        RegionenService.YearCheck(year);
         /* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
         HolocaustGedenktag, InternationalerFrauentag, Josefitag,
         Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, Karfreitag,

@@ -1,4 +1,5 @@
 using System.Data;
+using RegionaleFeiertage.Lib.Service;
 
 namespace RegionaleFeiertage.Lib.PublicHoliday;
 
@@ -215,6 +216,7 @@ public static class FeiertageDefinition
     // Ostern is Easter. Calculated by an extended Gauss algorithm.
     public static Feiertag Ostern(int year)
     {
+        RegionenService.YearCheck(year);
         float A, B, C, P, Q, M, N, D, E;
 
         A = year % 19;

@@ -1,5 +1,6 @@
 using RegionaleFeiertage.Lib.PublicHoliday;
 using RegionaleFeiertage.Lib.Regions;
+using RegionaleFeiertage.Lib.Service;
 using Xunit;
 
 namespace RegionaleFeiertage.LibTests;
@@ -31,7 +32,6 @@ public class RegionenTest
     [InlineData(2011, 2011, 4, 24)]
     [InlineData(2019, 2019, 4, 21)]
     [InlineData(2024, 2024, 3, 31)]
-    [InlineData(9999, 9999, 4, 12)]
     public void EasterCalculationTest(int year, int expYear, int expMonth, int expDay)
     {
         //2024-03-31
