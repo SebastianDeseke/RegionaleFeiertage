@@ -6,3 +6,4 @@
 **/.github
 deploy.sh
 setup-ssl.sh
+external

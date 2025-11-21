@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using Ical.Net;
 using Ical.Net.CalendarComponents;
 using Ical.Net.DataTypes;
@@ -55,6 +56,18 @@ public class CalendareFileGeneratorController : ControllerBase
         Console.WriteLine("Getting region feiertage data for " + result.Name);
         var feiertage = RegionenService.GetRegion(region, year, includeSonntag).Feiertage;
         return feiertage;
+    }
+
+    private void MakeZipFile (int year)
+    {
+        string readPath = "/external/bical/";
+        string zipPath = "/external/result.zip";
+        for (int i = 0; i < 17; i++)
+        {
+            //create a ical file for all 16 bundesländer
+            //and save into /external/bical/
+        }
+        ZipFile.CreateFromDirectory(readPath, zipPath);
     }
 
     [HttpGet]
