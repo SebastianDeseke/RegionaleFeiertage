@@ -5,7 +5,6 @@ namespace RegionaleFeiertage.LibTests;
 
 public class FeiertageFactoryTest
 {
-
     readonly List<Func<int, Feiertag>> commonholidays =
         [
             FeiertageDefinition.Neujahr,
