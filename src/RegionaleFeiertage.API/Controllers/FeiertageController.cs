@@ -16,13 +16,14 @@ public class FeiertageController : ControllerBase
         return feiertage;
     }
 
-    [HttpGet("{feiertagstr}/{year}")]
-    public ActionResult<string> GetFeiertag(string feiertagstr, int year)
+    [HttpGet("{feiertag}/{year}")]
+    public ActionResult<string> GetFeiertag(string feiertag, int year)
     {
+        var feiertagstr = feiertag.ToLower();
         var feiertaglist = Regionen.AllFeiertage(year).Feiertage;
         foreach (var tag in feiertaglist)
         {
-            if (tag.Name.Equals(feiertagstr))
+            if (tag.Name.ToLower().Equals(feiertagstr))
             {
                 return tag.Name + "\n" +tag.Datum + "\n" + tag.Status;
             }

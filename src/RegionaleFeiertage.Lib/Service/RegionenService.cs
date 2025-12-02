@@ -124,4 +124,26 @@ public class RegionenService
             throw new ArgumentOutOfRangeException(year.ToString(), "Year must be 1583 or later.");
         }
     }
+
+    public static bool FullAndShortNameChecker (string regionstr, int year, bool includeSonntage)
+    {
+        bool result = false;
+        var regions = GetAllRegions(year, includeSonntage);
+        foreach( var reg in regions)
+        {
+            if(reg.Name.Equals(regionstr))
+            {
+                result = true;
+            }
+            else if (reg.Shortname.Equals(regionstr))
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+        }
+        return result;
+    }
 }
