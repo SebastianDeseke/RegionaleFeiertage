@@ -22,15 +22,9 @@ public class RegionController : ControllerBase
     [HttpGet("{regionstr}/{year}")]
     public ActionResult<Region> GetRegion(string regionstr, int year, bool includeSonntage)
     {
-        if (!RegionenService.FullAndShortNameChecker(regionstr, year, includeSonntage))
-        {
-            return NotFound($"Region '{regionstr}' unbekannt.");
-        }
-        if (regdic.TryGetValue(regionstr, out Region result))
-        {
-            //return result;
-            return new Region("Test", "Test");
-        }
-        return NotFound($"Region '{regionstr}' nicht in Dictionary gefunden.");
+        Console.WriteLine("starting if checker");
+        var value = RegionenService.Canonicalize(regionstr);
+        var result = RegionenService.FullAndShortNameChecker(value, year, includeSonntage);
+        return result;
     }
 }

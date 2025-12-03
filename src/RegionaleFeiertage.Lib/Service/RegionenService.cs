@@ -125,25 +125,30 @@ public class RegionenService
         }
     }
 
-    public static bool FullAndShortNameChecker (string regionstr, int year, bool includeSonntage)
+    /*Method used to check the inputed string with the fullname and the shortname per region*/
+    public static Region FullAndShortNameChecker(string regionstr, int year, bool includeSonntage)
     {
-        bool result = false;
+        var search = Canonicalize(regionstr);
         var regions = GetAllRegions(year, includeSonntage);
-        foreach( var reg in regions)
+        foreach (var reg in regions)
         {
-            if(reg.Name.Equals(regionstr))
+            var canName = Canonicalize(reg.Name);
+            var canShortname = Canonicalize(reg.Shortname);
+            if (canName.Equals(search))
             {
-                result = true;
+                Console.WriteLine("succeeded at 1st if");
+                return reg;
             }
-            else if (reg.Shortname.Equals(regionstr))
+            else if (canShortname.Equals(search))
             {
-                result = true;
+                Console.WriteLine("succeeded at 2nd if");
+                return reg;
             }
             else
             {
-                result = false;
+                Console.WriteLine("failed at else");
             }
         }
-        return result;
+        return new Region("Error", "Err");
     }
 }
