@@ -12,13 +12,15 @@ namespace RegionaleFeiertage.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CalendareFileGeneratorController : ControllerBase
+public class CalendareFileGeneratorController (ILogger<CalendareFileGeneratorController> logger) : ControllerBase
 {
+    private readonly ILogger<CalendareFileGeneratorController> _logger = logger;
+
     /*using the iCal.Net package to return a iCal with all the Holidays 
     for the given paramaters*/
     private readonly Dictionary<string, Region> regdic = RegionenService.GetAllRegionsDictionary();
 
-    private string MakeiCalString(List<Feiertag> feirtage)
+    private static string MakeiCalString(List<Feiertag> feirtage)
     {
         var calendar = new Calendar();
         calendar.AddTimeZone(new VTimeZone("Europe/Berlin"));
@@ -48,12 +50,14 @@ public class CalendareFileGeneratorController : ControllerBase
     //To make feiertage list based on the region and year input
     private ActionResult<List<Feiertag>> MakeFeiertage(int year, string region, bool includeSonntag)
     {
+        string regionCan = RegionenService.Canonicalize(region);
         if (!regdic.TryGetValue(region, out Region result))
         {
+            _logger.LogInformation("Trygetvalue failed at MakeFeiertage");
             return NotFound($"Region '{region}' unbekannt.");
         }
 
-        Console.WriteLine("Getting region feiertage data for " + result.Name);
+        _logger.LogInformation("Getting region feiertage data for {0}", result.Name);
         var feiertage = RegionenService.GetRegion(region, year, includeSonntag).Feiertage;
         return feiertage;
     }

@@ -65,7 +65,7 @@ public class RegionenService
         return regionFuncs;
     }
 
-    public static Dictionary<string, Region> GetAllRegionsDictionary(bool includeSonntage = false)
+    public static Dictionary<string, Region> GetAllRegionsDictionary()
     {
         var dic = new Dictionary<string, Region>
         {
