@@ -4,16 +4,10 @@ using RegionaleFeiertage.Lib.Service;
 
 namespace RegionaleFeiertage.CLI.CommandLine;
 
-public class CommandHandler
+public class CommandHandler(ILogger<CommandHandler> logger, IConfiguration config)
 {
-    private readonly ILogger<CommandHandler> _logger;
-    private readonly IConfiguration _config;
-
-    public CommandHandler(ILogger<CommandHandler> logger, IConfiguration config)
-    {
-        _logger = logger;
-        _config = config;
-    }
+    private readonly ILogger<CommandHandler> _logger = logger;
+    private readonly IConfiguration _config = config;
 
     public void Run(string[] args)
     {
@@ -22,27 +16,6 @@ public class CommandHandler
         bool includeSonntage = false;
         bool asTaskjugglerCode = false;
         int? year = null;
-
-        /* for (int i = 0; i < args.Length; i++)
-                    {
-                        switch (args[i])
-                        {
-                            case "--region":
-                                if (i + 1 < args.Length)
-                                {
-                                    region = args[i + 1];
-                                    i++;
-                                }
-                                break;
-                            case "--year":
-                                if (i + 1 < args.Length && int.TryParse(args[i + 1], out int y))
-                                {
-                                    year = y;
-                                    i++;
-                                }
-                                break;
-                        }
-                    } */
 
         foreach (var arg in args)
         {
@@ -71,6 +44,7 @@ public class CommandHandler
 
 
         var holidays = RegionenService.GetRegion(region, (int)year, includeSonntage);
+        _logger.LogInformation("Retrieved {Count} holidays for region {Region} in year {Year}", holidays.Feiertage.Count, region, year);
         Console.WriteLine(holidays);
 
         // if (asTaskjugglerCode) {

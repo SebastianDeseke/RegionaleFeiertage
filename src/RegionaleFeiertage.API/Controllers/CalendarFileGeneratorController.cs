@@ -12,7 +12,7 @@ namespace RegionaleFeiertage.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CalendareFileGeneratorController (ILogger<CalendareFileGeneratorController> logger) : ControllerBase
+public class CalendareFileGeneratorController(ILogger<CalendareFileGeneratorController> logger) : ControllerBase
 {
     private readonly ILogger<CalendareFileGeneratorController> _logger = logger;
 
@@ -53,17 +53,19 @@ public class CalendareFileGeneratorController (ILogger<CalendareFileGeneratorCon
         string regionCan = RegionenService.Canonicalize(region);
         if (!regdic.TryGetValue(region, out Region result))
         {
-            _logger.LogInformation("Trygetvalue failed at MakeFeiertage");
+            _logger.LogInformation("Trygetvalue failed at MakeFeiertage. {Region} not found.", region);
             return NotFound($"Region '{region}' unbekannt.");
         }
 
-        _logger.LogInformation("Getting region feiertage data for {0}", result.Name);
+        _logger.LogInformation("Getting region feiertage data for {RegionName}", result.Name);
         var feiertage = RegionenService.GetRegion(region, year, includeSonntag).Feiertage;
         return feiertage;
     }
 
-    private void MakeZipFile (int year)
+    private void MakeZipFile(int year)
     {
+        /*external folder only exists in docker container
+        and is for the Zip file output*/
         string readPath = "/external/bical/";
         string zipPath = "/external/result.zip";
         for (int i = 0; i < 17; i++)
@@ -72,6 +74,7 @@ public class CalendareFileGeneratorController (ILogger<CalendareFileGeneratorCon
             //and save into /external/bical/
         }
         ZipFile.CreateFromDirectory(readPath, zipPath);
+        _logger.LogInformation("Created zip file at {ZipPath}", zipPath);
     }
 
     [HttpGet]
@@ -80,16 +83,19 @@ public class CalendareFileGeneratorController (ILogger<CalendareFileGeneratorCon
         var feiertageResult = MakeFeiertage(year, region, includeSonntag);
         var feiertage = feiertageResult.Value;
         var icalstr = MakeiCalString(feiertage);
+        _logger.LogInformation("Generated iCal string for region {Region} in year {Year}", region, year);
+        _logger.LogDebug("iCal string content: {ICalString}", icalstr);
         return icalstr;
     }
 
-    [HttpGet ("calendar")]
+    [HttpGet("calendar")]
     [Produces("text/calendar")]
     public IActionResult GetICal(int year, string region, bool includeSonntag)
     {
         var feiertageResult = MakeFeiertage(year, region, includeSonntag);
         var feiertage = feiertageResult.Value;
         var icalstr = MakeiCalString(feiertage);
+        _logger.LogDebug("Serialized iCal content: {ICalString}", icalstr);
 
         // Make the response a proper iCalendar payload. Return as content with the
         // text/calendar MIME type

@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RegionaleFeiertage.CLI.CommandLine;
 using Serilog;
-using System;
 
 Console.WriteLine("Starting application");
 
